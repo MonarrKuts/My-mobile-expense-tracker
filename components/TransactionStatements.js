@@ -8,7 +8,7 @@ const TransactionStatements = () => {
       <TouchableOpacity onPress={() => handleSeeAllClick()}>
         <Text>See All</Text>
       </TouchableOpacity>
-      {/* Your transaction statements go here */}
+      {/* User transaction statements go here */}
     </View>
   );
 };

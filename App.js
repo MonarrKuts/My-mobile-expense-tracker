@@ -7,6 +7,7 @@ import HomeScreen from './screens/HomeScreen';
 import ProfileScreen from './screens/ProfileScreen';
 import AuthScreens from './screens/AuthScreens';
 import BudgetScreen from './screens/BudgetScreen';
+import SignupScreen from './screens/SignupScreen';
 
 
 const Stack = createStackNavigator();
@@ -29,8 +30,9 @@ const App = () => {
     <NavigationContainer ref={navigationRef}>
       <Drawer.Navigator initialRouteName="Home">
         <Drawer.Screen name="Home" component={HomeScreen} />
-        <Drawer.Screen name="Profile" component={ProfileScreen} />
         <Drawer.Screen name= "Budget" component={BudgetScreen}/>
+        <Drawer.Screen name= "Signup" component={SignupScreen}/>
+        <Drawer.Screen name="Profile" component={ProfileScreen} />
       </Drawer.Navigator>
     </NavigationContainer>
   );
@@ -40,7 +42,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#6e57fe',
-    // Additional styles as needed
+    
   },
 });
 

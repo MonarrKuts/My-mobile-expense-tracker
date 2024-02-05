@@ -14,7 +14,7 @@ const ExpenseList = ({ expenses, onEdit }) => {
           >
             <Text>{expense.description}</Text>
             <Text>{expense.amount}</Text>
-            {/* Need to add more details mona */}
+            {/* Need to add more details  */}
           </TouchableOpacity>
         ))}
       </View>

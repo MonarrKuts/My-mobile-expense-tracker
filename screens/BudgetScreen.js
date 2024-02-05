@@ -32,6 +32,7 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
+    
   },
   title: {
     fontSize: 24,
@@ -41,11 +42,13 @@ const styles = StyleSheet.create({
   label: {
     fontSize: 18,
     marginBottom: 10,
+    
   },
   budgetAmount: {
     fontSize: 24,
     fontWeight: 'bold',
     marginBottom: 20,
+    color: '#7F6BFB',
   },
   input: {
     height: 40,

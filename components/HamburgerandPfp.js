@@ -1,7 +1,8 @@
 import React from 'react';
 import { View, Text, Image, TouchableOpacity } from 'react-native';
 
-//is there any point to this code, its just sitting there coz wtf
+//is there any point to this code, its just sitting there 
+//should delete
 
 
 
@@ -23,11 +24,11 @@ const HamburgerandPfp = ({navigation}) => {
   return (
     <View style={styles.header}>
       <TouchableOpacity onPress={() => handleHamburgerClick()}>
-        {/* Your hamburger icon/image goes here */}
+        {/*hamburger icon */} 
       </TouchableOpacity>
       <Text style={styles.title}>Hello!</Text>
       <TouchableOpacity onPress={() => handleProfileClick()}>
-        {/* Your user profile image goes here */}
+        {/* Ypfp*/}
       </TouchableOpacity>
     </View>
   );

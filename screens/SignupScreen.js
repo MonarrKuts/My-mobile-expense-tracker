@@ -1,17 +1,23 @@
 import React, { useState } from 'react';
 import { View, Text, TextInput, TouchableOpacity, StyleSheet } from 'react-native';
+import axios from 'axios';
 
 const SignupScreen = ({ navigation }) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
   const handleSignup = () => {
-    // Implement your signup logic here
-    console.log('Email:', email);
-    console.log('Password:', password);
+    axios.post('http://127.0.0.1:8000/api/register', {
+      username: email,
+      password,
+    })
+      .then(response => {
+        console.log('Registration successful:', response.data);
 
-    // For now, just navigate to the Welcome screen
-    navigation.navigate('Welcome');
+        // Goes to the Homescreen or upon successful registration
+        navigation.navigate("Home");
+      })
+      .catch(error => console.error('Error during registration:', error));
   };
 
   return (
@@ -57,7 +63,7 @@ const styles = StyleSheet.create({
     paddingLeft: 10,
   },
   signupButton: {
-    backgroundColor: 'blue',
+    backgroundColor: '#6e57fe',
     padding: 10,
     borderRadius: 5,
   },
