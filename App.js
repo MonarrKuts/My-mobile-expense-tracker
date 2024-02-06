@@ -16,6 +16,35 @@ const Drawer = createDrawerNavigator();
 const App = () => {
   const navigationRef = React.useRef(null);
 
+  const getCSRFToken = async () => {
+    try {
+      const response = await fetch('http://localhost:8000/api/csrf-token');
+
+      const data = await response.json();
+      return data.csrfToken;
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
+  const callApi = async (name) => {
+    let result;
+    try {
+        await fetch('http://localhost:8000/api/'+name+'/', {
+            // mode: 'no-cors',
+            method: "GET",
+        }).then(response => response.json())
+            .then(data => {
+                result = data; // Assign the value to the result variable
+                // console.log(result);
+            })
+            .catch(error => console.log('error', error));
+        console.log(result)
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
   useEffect(() => {
     const timer = setTimeout(() => {
       // Navigate to the 'Home' screen after 2000 milliseconds (2 seconds)
@@ -34,6 +63,7 @@ const App = () => {
         <Drawer.Screen name= "Signup" component={SignupScreen}/>
         <Drawer.Screen name="Profile" component={ProfileScreen} />
       </Drawer.Navigator>
+      <button onClick={() => callApi('test')}>Call API</button> {/* Add a button to call the API */}
     </NavigationContainer>
   );
 }
