@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { View, StyleSheet, ScrollView, Modal, TextInput, Text, TouchableOpacity } from 'react-native';
 import Balance from '../components/Balance';
 import TransactionStatements from '../components/TransactionStatements';
@@ -28,6 +28,25 @@ const HomeScreen = () => {
 
   const [selectedExpense, setSelectedExpense] = useState(null);
   const [editAmount, setEditAmount] = useState('');
+
+  useEffect(() => {
+    // Fetch expense details when the component mounts
+    fetchExpenseDetail();
+  }, []);
+
+  const fetchExpenseDetail = async (expense_id) => {
+    try {
+      const response = await fetch(`http://localhost:8000/api/expense/${expense_id}/`);
+      if (!response.ok) {
+        throw new Error('Failed to fetch expense detail');
+      }
+      const expense = await response.json();
+      setSelectedExpense(expense);
+    } catch (error) {
+      console.error(error);
+    }
+  };
+  
 
   const openEditModal = (expense) => {
     setSelectedExpense(expense);

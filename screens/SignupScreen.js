@@ -3,18 +3,16 @@ import { View, Text, TextInput, TouchableOpacity, StyleSheet } from 'react-nativ
 import axios from 'axios';
 
 const SignupScreen = ({ navigation }) => {
-  const [email, setEmail] = useState('');
+  const [email, setEmail] = useState('');  // Changed from 'username' to 'email'
   const [password, setPassword] = useState('');
 
   const handleSignup = () => {
-    axios.post('http://127.0.0.1:8000/api/register', {
-      username: email,
-      password,
+    axios.post('http://localhost:8000/api/register/', {
+      email: email,  // Changed from 'username' to 'email'
+      password: password,
     })
       .then(response => {
         console.log('Registration successful:', response.data);
-
-        // Goes to the Homescreen or upon successful registration
         navigation.navigate("Home");
       })
       .catch(error => console.error('Error during registration:', error));

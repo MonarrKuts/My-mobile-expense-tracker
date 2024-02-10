@@ -1,5 +1,7 @@
 import React from 'react';
 import { View, Text, Image, TouchableOpacity, StyleSheet } from 'react-native';
+import UserRegistration from '../components/UserRegistration'; //need to add its code
+import UserLogin from '../components/UserLogin';
 
 const ProfileScreen = ({ navigation }) => {
     const handleLogout = () => {
